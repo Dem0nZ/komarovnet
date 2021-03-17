@@ -7,7 +7,7 @@ const Header = () => {
     return (
         <header className=''>
             <div className='container mx-auto pt-4'>
-                <div className='flex justify-between items-start border-b border-gray-600 mb-4'>
+                <div className='flex justify-between items-start border-b border-red-200 pb-4 mb-4'>
                     <div className='flex-shrink-0'>
                         <img className='h-16 mx-2' src={ logo } alt='logo'/>
                     </div>
