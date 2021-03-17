@@ -14,7 +14,7 @@ const Header = () => {
                     <div className='flex justify-between'>
                         <button type='button'
                                 className='bg-red-600 hover:bg-red-900 h-12 text-white text-base w-48 focus:outline-none p-2 flex-shrink-0'>
-                            Перезвоните нам
+                            Позвоните мне
                         </button>
                         <div className='mx-10'>
                             <div className='text-2xl text-red-400'>
