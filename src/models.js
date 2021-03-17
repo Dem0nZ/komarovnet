@@ -7,6 +7,7 @@ import windows from '../src/assets/icons/4137154-building-construction-industry-
  export const mainInfo = {
     mail: 'info@komarovnetu.ru',
     phone: '+7 (911) 222-33-44',
+    address: 'г.Санкт-Петербург, площадь Конституции, д.2',
     schedule: {
         work: 'Пн-Пт с 9:00 до 18:00',
         weekend: 'Сб-Вс - выходной'
