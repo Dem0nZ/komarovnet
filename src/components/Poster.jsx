@@ -19,7 +19,9 @@ const Poster = () => {
                     </h1>
                     { advantages }
                 </div>
-                <button type='button' className='absolute left-6 -bottom-8 bg-red-600 hover:bg-red-900 h-16 w-56 text-white text-base focus:outline-none p-2 flex-shrink-0'>Расчитать стоимость</button>
+                <button type='button' className='absolute left-6 -bottom-8 bg-red-600 hover:bg-red-900 h-16 w-56 text-white text-base focus:outline-none p-2 flex-shrink-0'>
+                    Расcчитать стоимость
+                </button>
             </div>
           </div>
     );
