@@ -5,11 +5,11 @@ import Map from './Map';
 
 const Footer = () => {
     return (
-        <footer className='bg-gray-500'>
+        <footer className='bg-gray-400'>
             <div className='container mx-auto'>
                 <div className='flex justify-between'>
                     <Map/>
-                    <div className='text-white font-light text-base pt-10'>
+                    <div className='w-1/4 text-white font-light text-base pt-10'>
                         <div className='flex'>
                             <div>
                                 <svg className='w-6 mr-2' xmlns="http://www.w3.org/2000/svg" fill="none"
@@ -21,7 +21,21 @@ const Footer = () => {
                                 </svg>
                             </div>
                             <div>
-                                { mainInfo.address }
+                               <span>Офис:</span> { mainInfo.addressOffice }
+                            </div>
+                        </div>
+                        <div className='flex my-2'>
+                            <div>
+                                <svg className='w-6 mr-2' xmlns="http://www.w3.org/2000/svg" fill="none"
+                                     viewBox="0 0 24 24" stroke="currentColor">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={ 2 }
+                                          d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={ 2 }
+                                          d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <span>Производство:</span> { mainInfo.addressProm }
                             </div>
                         </div>
                         <a className='flex my-2' href={ 'tel:' + mainInfo.phone }>
