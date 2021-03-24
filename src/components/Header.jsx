@@ -23,8 +23,7 @@ const Header = () => {
                         <div className='text-3xl text-red-600 flex-shrink-0'>
                             <a href={ 'tel:' + mainInfo.phone }>{ mainInfo.phone }</a>
                             <button type='button'
-                                    //todo: align text center
-                                    className='block bg-red-600 hover:bg-red-900 h-10 text-white text-xl font-medium w-full focus:outline-none p-3 flex-shrink-0 mt-2'>
+                                    className='block bg-red-600 hover:bg-red-900 text-white text-xl font-medium w-full focus:outline-none p-2 flex-shrink-0 mt-2'>
                                 Позвоните мне
                             </button>
                         </div>
