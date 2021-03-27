@@ -1,5 +1,4 @@
 import React from 'react';
-import image from '../assets/poster.jpg'
 import { advantagesItems } from '../models';
 
 const advantages = advantagesItems.map( item => {
@@ -10,16 +9,15 @@ const advantages = advantagesItems.map( item => {
 
 const Poster = () => {
     return (
-        <div className='bg-gradient-to-r from-gray-500 to-red-500 mb-20'>
-            {/*<div className='h-80 bg-cover' style={ { backgroundImage: `url(${ image })` } }>*/ }
+        <div className='bg-gradient-to-r from-gray-500 via-gray-500 to-red-400 mb-20'>
             <div className='relative container  mx-auto py-20'>
                 <div className='w-1/2 font-light text-white'>
                     <h1 className='text-6xl mb-10'>
-                        Москитные сетки в Санкт-Петербурге
+                        Производство и установка москитных систем в Спб и ЛО
                     </h1>
                     { advantages }
                 </div>
-                <button type='button' className='absolute left-6 -bottom-8 bg-red-600 hover:bg-red-900 h-16 w-56 text-white text-base focus:outline-none p-2 flex-shrink-0'>
+                <button type='button' className='absolute left-6 -bottom-6 bg-red-600 hover:bg-red-900 text-white text-xl font-medium focus:outline-none p-2 flex-shrink-0 px-4 py-2'>
                     Расcчитать стоимость
                 </button>
             </div>

@@ -2,7 +2,7 @@ import React from 'react';
 
 const Card = ( props ) => {
     return (
-        <div className='flex-col flex w-290 shadow-lg font-extralight'>
+        <div className='flex-col flex w-290 shadow-lg hover:shadow-xl font-extralight'>
             <div className='relative'>
                 <img className='w-full h-56' src={ props.image } alt={props.name}/>
                 <h3 className='absolute bottom-0 left-0 w-full text-white font-light text-lg bg-gray-400 bg-opacity-70 py-1 px-2'>
