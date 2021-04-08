@@ -25,13 +25,8 @@ const Map = () => {
             .bindLabel('Производство', {
                 static: true
             });
-    })
-    return (<div>
-        <div id='map' className='w-850 h-400 bg-red-400'>
-        </div>
-    </div>
-
-    );
+    }, [])
+    return (<div id='map' className='w-850 h-400 bg-red-400'></div>);
 };
 
 export default Map;
