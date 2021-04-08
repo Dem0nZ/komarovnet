@@ -2,12 +2,12 @@ import React from 'react';
 import ConditionCell from './ConditionCell';
 import { conditions } from '../models';
 
-const conditionCells = conditions.map( (item) => <ConditionCell { ...item } /> )
+const conditionCells = conditions.map( (item, index ) => <ConditionCell key={index} { ...item } /> )
 
 const Conditions = () => {
     return (
         <div className='container mx-auto'>
-            <div className='w-full grid grid-cols-2 auto-rows-fr gap-4'>
+            <div className='w-full grid grid-cols-3 auto-rows-fr gap-3'>
                 { conditionCells }
             </div>
 
@@ -16,3 +16,6 @@ const Conditions = () => {
 };
 
 export default Conditions;
+
+
+//TODO: modal to contact form
