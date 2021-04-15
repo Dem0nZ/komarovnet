@@ -34,11 +34,11 @@ function App() {
             <Header/>
             <Nav/>
             <Poster/>
-            <Title title={ 'Рамочные москитные сетки' }/>
+            <Title id='calc' title={ 'Рамочные москитные сетки' }/>
             <Calc doVisible={ doVisible }/>
-            <Title title={ 'Виды москитных сеток' }/>
+            <Title id='grids' title={ 'Виды москитных сеток' }/>
             <Grids/>
-            <Title title={ 'Условия' }/>
+            <Title id='conditions' title={ 'Условия' }/>
             <Conditions/>
             <Title title={ 'Как ухаживать и хранить?' }/>
             <Advice/>

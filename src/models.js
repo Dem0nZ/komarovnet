@@ -37,19 +37,19 @@ export const mainInfo = {
 export const navItems = [
     {
         name: 'Москитные сетки',
-        link: '#'
+        link: 'grids'
     },
     {
         name: 'Калькулятор стоимости',
-        link: '#'
+        link: 'calc'
     },
     {
         name: 'Гарантия и оплата',
-        link: '#'
+        link: 'conditions'
     },
     {
         name: 'Контакты',
-        link: '#'
+        link: 'footer'
     },
     {
         name: 'Партнерам',

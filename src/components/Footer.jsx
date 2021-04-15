@@ -5,7 +5,7 @@ import Map from './Map';
 
 const Footer = () => {
     return (
-        <footer className='bg-gray-400'>
+        <footer id='footer' className='bg-gray-400'>
             <div className='container mx-auto'>
                 <div className='flex justify-between'>
                     <Map/>
