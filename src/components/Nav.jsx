@@ -1,15 +1,19 @@
 import React from 'react';
 import { navItems } from '../models';
 
+import { Link, animateScroll as scroll } from "react-scroll";
 
-const navList = navItems.map( item => {
-    return <li className='hover:text-red-600 hover:underline'>
+
+const navList = navItems.map( (item, index )=> {
+    return <li key={index} className='hover:text-red-600 hover:underline'>
         <a href={ item.link }>{ item.name }</a>
     </li>
 
 })
 
-const Menu = () => {
+
+
+const Nav = () => {
     return (
         <div className='container mx-auto'>
             <nav className='mb-4'>
@@ -22,4 +26,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default Nav;

@@ -1,8 +1,8 @@
 import React from 'react';
 import { advantagesItems } from '../models';
 
-const advantages = advantagesItems.map( item => {
-    return <div className='flex text-3xl font-extralight my-4'>
+const advantages = advantagesItems.map( (item, index) => {
+    return <div key={index} className='flex text-3xl font-extralight my-4'>
         <img className='block h-12 mr-5' src={ item.icon } alt=''/> { item.name }
     </div>
 })

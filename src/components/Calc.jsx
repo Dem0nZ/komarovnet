@@ -167,13 +167,16 @@ const Calc = (props) => {
     return (
         <div className='container mx-auto font-light text-lg'>
             <FrameGrid/>
+            <h2 className='bg-white text-2xl pt-4 pl-4'>
+                Рассчитайте стоимость рамочных сеток и закажите их в два клика:
+            </h2>
             <div className='flex shadow-lg py-8 bg-white divide-x divide-red-200'>
                 <form className='w-2/5 flex flex-col px-4'>
                     <div className='grid-calc gap-y-4 gap-x-5 items-baseline'>
                         <div>
                             <span>Размеры рамки:</span>
                         </div>
-                        <div className='flex'>
+                        <div className='flex items-baseline'>
                             <input className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em'
                                    id='width'
                                    type='text'
@@ -181,7 +184,7 @@ const Calc = (props) => {
                                    value={ formState.width }
                                    onChange={ onChange('width') }
                             />
-                            <span className=' mr-2'>мм</span>
+                            <span className='mr-2'>мм</span>
                             <span>
                               &#215;
                             </span>
@@ -266,49 +269,45 @@ const Calc = (props) => {
                             onClick={ addToCart }
                         />
                 </form>
-                <div className='w-3/5 px-5 flex flex-col justify-between'>
+                <div className='w-3/5 px-4 flex flex-col justify-between'>
+                          <div hidden={ cart.length === 0 }>
+                              <div className='flex mt-5 shadow-md p-4'>
+                                  <div className='flex w-full flex-col mr-4'>
+                                      <label htmlFor='count'>Имя:</label>
+                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
+                                             id='name'
+                                             type='text'
+                                             value={ contacts.name }
+                                             onChange={ onContactsChange('name') }
+                                      />
+                                  </div>
+                                  <div className='flex w-full flex-col'>
+                                      <label htmlFor='count'>Телефон или e-mail:</label>
+                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
+                                             id='phone'
+                                             type='text'
+                                             value={ contacts.phone }
+                                             onChange={ onContactsChange('phone') }
+                                      />
+                                  </div>
+                              </div>
+                          </div>
                     <div>
-                        { (cart.length !== 0) ? cart.map((item, index) => <CartItem
-                            key={ index }
-                            removeItemFromCart={ removeItemFromCart }
-                            id={ index } { ...item }/>) : '' }
-                    </div>
-                    <div hidden={ cart.length === 0 }>
-                            <div className='flex justify-between items-end'>
-                                <div className='grid-calc gap-3 mt-5'>
-                                    <div>
-                                        <label htmlFor='count'>Имя:</label>
-                                    </div>
-                                    <div>
-                                        <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
-                                               id='name'
-                                               type='text'
-                                               value={ contacts.name }
-                                               onChange={ onContactsChange('name') }
-                                        />
-                                    </div>
-                                    <div>
-                                        <label htmlFor='count'>Телефон:</label>
-                                    </div>
-                                    <div>
-                                        <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
-                                               id='phone'
-                                               type='text'
-                                               value={ contacts.phone }
-                                               onChange={ onContactsChange('phone') }
-                                        />
-                                    </div>
-                                </div>
-                                <input
-                                    className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2'
-                                    type='button'
-                                    value={ buttonCart }
-                                    onClick={ postMail }
-                                />
-                            </div>
+                        { (cart.length !== 0)
+                            ? cart.map((item, index) => <CartItem
+                                key={ index }
+                                removeItemFromCart={ removeItemFromCart }
+                                id={ index } { ...item }/>)
+                            : <p className=''> Добавьте расчет рамки в заказ</p>   }
 
+                        <input
+                            className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2'
+                            type='button'
+                            value={ buttonCart }
+                            onClick={ postMail }
+                            hidden={ cart.length === 0 }
+                        />
                     </div>
-
                 </div>
             </div>
         </div>

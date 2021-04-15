@@ -17,3 +17,16 @@
 .text-indent {
     text-indent: 10px;
 }
+.grid-calc {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+}
+
+.grid-cart {
+    display: grid;
+    grid-template-columns: 5fr 1fr 2fr 0.5fr;
+}
+
+.h-2em {
+    height: 1.7em;
+}

@@ -1,5 +1,5 @@
 import Header from './components/Header';
-import Menu from './components/Menu';
+import Nav from './components/Nav';
 import Poster from './components/Poster';
 import Calc from './components/Calc';
 import Footer from './components/Footer';
@@ -32,9 +32,9 @@ function App() {
     return (<>
             <Snackbar {...snackState}/>
             <Header/>
-            <Menu/>
+            <Nav/>
             <Poster/>
-            <Title title={ 'Калькулятор москитных сеток' }/>
+            <Title title={ 'Рамочные москитные сетки' }/>
             <Calc doVisible={ doVisible }/>
             <Title title={ 'Виды москитных сеток' }/>
             <Grids/>
