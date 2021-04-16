@@ -2,11 +2,6 @@ import React, { useState } from 'react';
 import CartItem from './CartItem';
 import FrameGrid from './FrameGrid';
 
-
-//todo: 4. валидация полей
-//      5. якоря в менюшках
-//      6. Брейкпоинты на адаптив
-
 const Calc = (props) => {
 
     const [cart, setCart] = useState([]);
@@ -167,17 +162,17 @@ const Calc = (props) => {
     return (
         <div className='container mx-auto font-light text-lg'>
             <FrameGrid/>
-            <h2 className='bg-white text-2xl pt-4 pl-4'>
+            <h2 id='calc' className='bg-white text-2xl pt-4 pl-4'>
                 Рассчитайте стоимость рамочных сеток и закажите их в два клика:
             </h2>
-            <div className='flex shadow-lg py-8 bg-white divide-x divide-red-200'>
-                <form className='w-2/5 flex flex-col px-4'>
+            <div className='flex shadow-lg py-8 bg-white divide-x divide-red-200 sm:flex-col'>
+                <form className='w-2/5 flex flex-col px-4 sm:w-full'>
                     <div className='grid-calc gap-y-4 gap-x-5 items-baseline'>
                         <div>
                             <span>Размеры рамки:</span>
                         </div>
                         <div className='flex items-baseline'>
-                            <input className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em'
+                            <input className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:h-12'
                                    id='width'
                                    type='text'
                                    placeholder='Ширина'
@@ -189,7 +184,7 @@ const Calc = (props) => {
                               &#215;
                             </span>
                             <input
-                                className='flex-grow w-20 border border-gray-200 focus:outline-none ml-2 mr-1 text-right pr-2 h-2em'
+                                className='flex-grow w-20 border border-gray-200 focus:outline-none ml-2 mr-1 text-right pr-2 h-2em sm:h-12'
                                 id='height'
                                 type='text'
                                 placeholder='Высота'
@@ -203,7 +198,7 @@ const Calc = (props) => {
                             <label htmlFor='typeGrid'>Тип полотна:</label>
                         </div>
                         <div>
-                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em'
+                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em  sm:h-12'
                                     name='typeGrid'
                                     id='typeGrid'
                                     value={ formState.type }
@@ -220,7 +215,7 @@ const Calc = (props) => {
                             <label htmlFor='fastering'>Крепление:</label>
                         </div>
                         <div>
-                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em'
+                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em sm:h-12'
                                     id='fastering'
                                     value={ formState.fastering }
                                     onChange={ onChange('fastering') } >
@@ -234,7 +229,7 @@ const Calc = (props) => {
                             <label htmlFor='colorFrame'>Цвет рамки:</label>
                         </div>
                         <div>
-                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em'
+                            <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em sm:h-12'
                                     id='colorFrame'
                                     value={ formState.color }
                                     onChange={ onChange('color') }>
@@ -250,7 +245,7 @@ const Calc = (props) => {
                             <span>Количество:</span>
                         </div>
                         <div>
-                            <input className='w-12 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em'
+                            <input className='w-12 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:w-20 sm:h-12'
                                    id='count'
                                    type='text'
                                    value={ formState.count }
@@ -263,18 +258,18 @@ const Calc = (props) => {
                     </div>
 
                         <input
-                            className='self-end focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 mt-6'
+                            className='self-end focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 mt-6 sm:w-full'
                             type='button'
                             value='Добавить в заказ'
                             onClick={ addToCart }
                         />
                 </form>
-                <div className='w-3/5 px-4 flex flex-col justify-between'>
+                <div className='w-3/5 px-4 flex flex-col justify-between sm:w-full'>
                           <div hidden={ cart.length === 0 }>
-                              <div className='flex mt-5 shadow-md p-4'>
+                              <div className='flex mt-5 shadow-md p-4 sm:flex-col sm:mb-4'>
                                   <div className='flex w-full flex-col mr-4'>
                                       <label htmlFor='count'>Имя:</label>
-                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
+                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em  sm:h-12'
                                              id='name'
                                              type='text'
                                              value={ contacts.name }
@@ -283,7 +278,7 @@ const Calc = (props) => {
                                   </div>
                                   <div className='flex w-full flex-col'>
                                       <label htmlFor='count'>Телефон или e-mail:</label>
-                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em'
+                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em sm:h-12'
                                              id='phone'
                                              type='text'
                                              value={ contacts.phone }
@@ -298,10 +293,10 @@ const Calc = (props) => {
                                 key={ index }
                                 removeItemFromCart={ removeItemFromCart }
                                 id={ index } { ...item }/>)
-                            : <p className=''> Добавьте расчет рамки в заказ</p>   }
+                            : <p className='sm:hidden'> Добавьте расчет рамки в заказ</p>   }
 
                         <input
-                            className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2'
+                            className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 sm:w-full'
                             type='button'
                             value={ buttonCart }
                             onClick={ postMail }

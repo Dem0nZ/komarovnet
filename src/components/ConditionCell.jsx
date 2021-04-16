@@ -9,14 +9,14 @@ const ConditionCell = (props) => {
         </li>
     })
     return (
-        <div className='flex flex-col items-center shadow-lg font-light py-5'>
+        <div className='flex flex-col items-center shadow-lg font-light py-5 sm:shadow-none'>
             <div className='flex flex-col items-center border-b-2 border-gray-600 px-5 pb-4'>
 
                     { props.icon }
 
                 <h2 className='text-3xl'>{ props.title }</h2>
             </div>
-            <p className='text-xl mt-4'>
+            <p className='text-xl mt-4 w-full'>
                 <ul className='list-square px-10 text-red-600'>
                     { conditionList }
                 </ul>

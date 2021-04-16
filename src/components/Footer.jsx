@@ -7,9 +7,9 @@ const Footer = () => {
     return (
         <footer id='footer' className='bg-gray-400'>
             <div className='container mx-auto'>
-                <div className='flex justify-between'>
+                <div className='flex justify-between sm:flex-col'>
                     <Map/>
-                    <div className='w-1/4 text-white font-light text-base pt-10'>
+                    <div className='w-1/4 text-white font-light text-base pt-10 sm:w-full sm:px-2 sm:pb-6'>
                         <div className='flex'>
                             <div>
                                 <svg className='w-6 mr-2' xmlns="http://www.w3.org/2000/svg" fill="none"

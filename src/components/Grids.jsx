@@ -6,7 +6,7 @@ const gridItems = grids.map( (item, index) => <Card key={index} { ...item } /> )
 const Grids = () => {
     return (
         <div className='container mx-auto'>
-            <div className='w-full grid grid-cols-4 gap-4'>
+            <div className='w-full grid grid-cols-4 gap-4 sm:flex sm:flex-col'>
                 { gridItems }
             </div>
             
@@ -15,5 +15,3 @@ const Grids = () => {
 };
 
 export default Grids;
-
-//TODO: img width assets

@@ -26,7 +26,7 @@ const Map = () => {
                 static: true
             });
     }, [])
-    return (<div id='map' className='w-850 h-400 bg-red-400'></div>);
+    return (<div id='map' className='w-850 h-400 bg-red-400 sm:w-full sm:h-72'></div>);
 };
 
 export default Map;

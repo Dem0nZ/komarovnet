@@ -34,7 +34,7 @@ function App() {
             <Header/>
             <Nav/>
             <Poster/>
-            <Title id='calc' title={ 'Рамочные москитные сетки' }/>
+            <Title title={ 'Рамочные москитные сетки' }/>
             <Calc doVisible={ doVisible }/>
             <Title id='grids' title={ 'Виды москитных сеток' }/>
             <Grids/>

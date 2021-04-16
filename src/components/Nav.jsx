@@ -5,7 +5,7 @@ import { Link } from "react-scroll";
 
 
  const navList = navItems.map( (item, index )=> {
-     return <li key={index} className='hover:text-red-600 hover:underline'>
+     return <li key={index} className='hover:text-red-600 hover:underline cursor-pointer'>
          <Link
              to={ item.link }
              spy={true}
@@ -22,7 +22,7 @@ const Nav = () => {
     return (
         <div className='container mx-auto'>
             <nav className='mb-4'>
-                <ul className='flex justify-between text-xl font-extralight'>
+                <ul className='flex justify-between text-xl font-extralight sm:flex-col sm:font-light sm:items-center'>
                     { navList }
                 </ul>
             </nav>
