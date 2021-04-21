@@ -86,7 +86,7 @@ const Calc = (props) => {
     let priceType;
     switch (formState.type) {
         case 'стандартное': {
-            priceType = 1350;
+            priceType = 1000;
             break;
         }
         case 'антимошка': {
@@ -94,15 +94,15 @@ const Calc = (props) => {
             break;
         }
         case 'антикошка': {
-            priceType = 1600;
+            priceType = 1650;
             break;
         }
         case 'антипыль': {
-            priceType = 1850;
+            priceType = 2700;
             break;
         }
         case 'нано-фильтр CleanAir': {
-            priceType = 1400;
+            priceType = 4000;
             break;
         }
         default:
@@ -116,11 +116,11 @@ const Calc = (props) => {
             break;
         }
         case 'Z-образное, металл': {
-            priceFastering = 550;
+            priceFastering = 100;
             break;
         }
         case 'плунжерное': {
-            priceFastering = 900;
+            priceFastering = 350;
             break;
         }
         default:
@@ -130,19 +130,19 @@ const Calc = (props) => {
     let priceColor;
     switch (formState.color) {
         case 'белый': {
-            priceColor = 450;
+            priceColor = 0;
             break;
         }
         case 'коричневый': {
-            priceColor = 1000;
+            priceColor = 0;
             break;
         }
         case 'серый RAL7024': {
-            priceColor = 2000;
+            priceColor = 450;
             break;
         }
         case 'индивидуальный': {
-            priceColor = 3000;
+            priceColor = 700;
             break;
         }
         default:
@@ -150,7 +150,7 @@ const Calc = (props) => {
     }
 
 
-    const priceGrid = Math.ceil((square * priceType + priceFastering + priceColor) * formState.count);
+    const priceGrid = Math.ceil((square * (priceType + priceColor) + priceFastering) * formState.count);
 
     if (cart.length !== 0) {
        totalSumm = cart.reduce(function (prev, curr) {

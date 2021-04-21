@@ -16,7 +16,3 @@ const Conditions = () => {
 };
 
 export default Conditions;
-
-
-//TODO: modal to contact form
-// высота кнопок 56, инпуты 44, убрать тени кондишн, паддинги,кнопка рассчитать на хл, другая на см

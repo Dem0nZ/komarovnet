@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-scroll';
 
 const Card = ( props ) => {
     return (
@@ -17,18 +16,7 @@ const Card = ( props ) => {
                 <p className='pb-4 text-indent flex flex-1'>
                     { props.description }
                 </p>
-                <Link
-                    className='block flex flex-col'
-                    to={ 'calc' }
-                    smooth={true}
-                    duration= {800}
-                >
-                    <button className='focus:outline-none border border-red-600 hover:bg-red-200 text-red-600 p-2 px-3'
-                            type='button'>
-                        { props.buttonTag }
-                    </button>
-                </Link>
-
+                {props.children}
             </div>
 
         </div>

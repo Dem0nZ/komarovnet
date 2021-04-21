@@ -6,7 +6,7 @@ module.exports = {
     screens: {
       'lg': {'max': '1200px'},
 
-      'sm': {'max': '639px'},
+      'sm': {'max': '768px'},
     },
     listStyleType: {
       none: 'none',

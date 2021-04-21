@@ -31,13 +31,13 @@ function App() {
 
     return (<>
             <Snackbar {...snackState}/>
-            <Header/>
-            <Nav/>
+            <Header doVisible={ doVisible }/>
+            <Nav doVisible={ doVisible }/>
             <Poster/>
             <Title title={ 'Рамочные москитные сетки' }/>
             <Calc doVisible={ doVisible }/>
             <Title id='grids' title={ 'Виды москитных сеток' }/>
-            <Grids/>
+            <Grids doVisible={ doVisible }/>
             <Title id='conditions' title={ 'Условия' }/>
             <Conditions/>
             <Title title={ 'Как ухаживать и хранить?' }/>

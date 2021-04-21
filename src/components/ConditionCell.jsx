@@ -1,8 +1,8 @@
 import React from 'react';
 
 const ConditionCell = (props) => {
-    const conditionList = props.text.map(item => {
-        return <li>
+    const conditionList = props.text.map((item, id) => {
+        return <li key={ id }>
                    <span className='text-black'>
                             { item }
                    </span>
@@ -10,17 +10,17 @@ const ConditionCell = (props) => {
     })
     return (
         <div className='flex flex-col items-center shadow-lg font-light py-5 sm:shadow-none'>
-            <div className='flex flex-col items-center border-b-2 border-gray-600 px-5 pb-4'>
+            <div className='flex flex-col items-center px-5 pb-4 text-red-600'>
 
                     { props.icon }
 
                 <h2 className='text-3xl'>{ props.title }</h2>
             </div>
-            <p className='text-xl mt-4 w-full'>
-                <ul className='list-square px-10 text-red-600'>
+            <div className='text-xl mt-4 w-full text-red-600'>
+                <ul className='list-square px-10'>
                     { conditionList }
                 </ul>
-            </p>
+            </div>
         </div>
     );
 };
