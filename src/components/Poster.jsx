@@ -42,7 +42,7 @@ const Poster = () => {
                     duration= {800}
                 >
                     <button type='button'
-                            className='absolute left-6 -bottom-6 bg-red-600 hover:bg-red-900 text-white text-xl font-medium focus:outline-none py-2 flex-shrink-0 px-4 sm:static sm:w-full sm:py-4'>
+                            className='absolute z-30 left-6 -bottom-6 bg-red-600 hover:bg-red-900 text-white text-xl font-medium focus:outline-none py-2 flex-shrink-0 px-4 sm:static sm:w-full sm:py-4'>
                         Расcчитать стоимость
                     </button>
                 </Link>

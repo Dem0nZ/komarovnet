@@ -8,7 +8,7 @@ const Modal = ({
                }) => {
     if (!visible) return null
     return (
-        <div className='fixed top-0 bottom-0 left-0 right-0 w-full z-50 flex items-center justify-center bg-gray-400 bg-opacity-30'
+        <div className='fixed top-0 bottom-0 left-0 right-0 w-full z-50 flex items-center justify-center bg-gray-600 bg-opacity-70'
              onClick={ onClose }>
             <div className='bg-white flex flex-col p-4 sm:w-full'
                  onClick={ e => e.stopPropagation() }>

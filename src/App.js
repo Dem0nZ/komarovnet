@@ -29,7 +29,7 @@ function App() {
         },3000);
     }
 
-    return (<>
+    return (<div>
             <Snackbar {...snackState}/>
             <Header doVisible={ doVisible }/>
             <Nav doVisible={ doVisible }/>
@@ -43,7 +43,7 @@ function App() {
             <Title title={ 'Как ухаживать и хранить?' }/>
             <Advice/>
             <Footer/>
-        </>
+        </div>
     );
 }
 
