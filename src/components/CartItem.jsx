@@ -16,7 +16,7 @@ const CartItem = (props) => {
                 <div className='text-right'>
                     { props.count } шт.
                 </div>
-                <div className='text-right pr-4'>
+                <div className='text-right pr-4 sm:pr-1'>
                     { props.cost } &#8381;
                 </div>
 

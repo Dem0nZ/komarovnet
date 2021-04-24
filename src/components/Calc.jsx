@@ -59,12 +59,12 @@ const Calc = (props) => {
 
     async function postMail ()  {
         try {
-            let response = await fetch('http://localhost/test.php', {
+            let response = await fetch('/test.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                body: JSON.stringify({ cart, contacts })
+                body: JSON.stringify({type:"order", cart, contacts })
             })
             if (response.status === 200) {
                 props.doVisible('green', 'Ваша заявка отправлена', false);
@@ -167,9 +167,9 @@ const Calc = (props) => {
             </h2>
             <div className='flex shadow-lg py-8 bg-white divide-x divide-red-200 sm:flex-col'>
                 <form className='w-2/5 flex flex-col px-4 sm:w-full'>
-                    <div className='grid-calc gap-y-4 gap-x-5 items-baseline'>
+                    <div className='grid-calc gap-y-4 gap-x-5 items-baseline sm:gap-x-1'>
                         <div>
-                            <span>Размеры рамки:</span>
+                            <span>Размер рамки:</span>
                         </div>
                         <div className='flex items-baseline'>
                             <input className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:h-12'
@@ -179,7 +179,7 @@ const Calc = (props) => {
                                    value={ formState.width }
                                    onChange={ onChange('width') }
                             />
-                            <span className='mr-2'>мм</span>
+                            <span className='mr-2 sm:hidden'>мм</span>
                             <span>
                               &#215;
                             </span>

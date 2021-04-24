@@ -21,12 +21,12 @@ const Header = (props) => {
     };
     async function postMail ()  {
         try {
-            let response = await fetch('http://localhost/test.php', {
+            let response = await fetch('/test.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                body: JSON.stringify({ contacts })
+                body: JSON.stringify({type:"callback", contacts })
             })
             if (response.status === 200) {
                 props.doVisible('green', 'Ваша заявка отправлена', false);
