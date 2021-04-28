@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { navItems } from '../models';
 
 import { Link } from "react-scroll";
@@ -8,6 +8,16 @@ import Modal from './Modal';
 
 const Nav = (props) => {
     const [burgerVisible, setBurgerVisible] = useState(true);
+
+    useEffect(() => {
+        if (!burgerVisible) {
+            function onScroll() {
+                setBurgerVisible(true)
+            }
+            window.addEventListener("scroll", onScroll);
+            return () => window.removeEventListener("scroll", onScroll);
+        }
+    }, [burgerVisible]);
 
     const navList = navItems.map((item, index) => {
         let child;
@@ -32,7 +42,7 @@ const Nav = (props) => {
         </li>
     })
 
-    const [isModal, setModal] = React.useState(false)
+    const [isModal, setModal] = useState(false)
     const onClose = () => setModal(false)
 
     const initialContacts = {
@@ -100,7 +110,7 @@ const Nav = (props) => {
 
 
     return (
-        <div className={ `container mx-auto sticky sm:bg-transparent bg-gray-100 top-0 z-50 ${ !burgerVisible ? 'sm:bg-gray-400':'' }` }>
+        <div className={ `container mx-auto sticky sm:bg-transparent bg-gray-100 top-0 z-40 ${ !burgerVisible ? 'sm:bg-gray-400':'' }` }>
             <svg xmlns="http://www.w3.org/2000/svg"
                  className={ `h-0 sm:h-10 text-red-600 ml-4 ${burgerVisible ? '':'sm:hidden'}` }
                  onClick={() => setBurgerVisible(!burgerVisible)}

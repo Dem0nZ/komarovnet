@@ -19,9 +19,10 @@ const Header = (props) => {
             setContacts(newContacts);
         };
     };
+
     async function postMail ()  {
         try {
-            let response = await fetch('/test.php', {
+            let response = await fetch('http://localhost/test.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -42,8 +43,8 @@ const Header = (props) => {
             <div className='flex flex-col mt-5 sm:mb-4'>
                 <div className='flex sm:flex-col'>
                     <div className='flex w-full flex-col mr-4'>
-                        <label htmlFor='count'>Имя:</label>
-                        <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em  sm:h-12'
+                        <label htmlFor='name'>Имя:</label>
+                        <input className= 'border border-gray-200 focus:outline-none text-left pl-1 h-2em  sm:h-12'
                                id='name'
                                type='text'
                                value={ contacts.name }
@@ -51,8 +52,8 @@ const Header = (props) => {
                         />
                     </div>
                     <div className='flex w-full flex-col'>
-                        <label htmlFor='count'>Телефон или e-mail:</label>
-                        <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em sm:h-12'
+                        <label htmlFor='phone'>Телефон или e-mail:</label>
+                        <input className= 'border border-gray-200 focus:outline-none text-left pl-1 h-2em sm:h-12'
                                id='phone'
                                type='text'
                                value={ contacts.phone }
@@ -63,6 +64,7 @@ const Header = (props) => {
                 <input
                     className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 sm:w-full mt-4'
                     type='button'
+                    disabled={false}
                     value='Связаться со мной'
                     onClick={ postMail }
                 />
