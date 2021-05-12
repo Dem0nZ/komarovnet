@@ -74,7 +74,7 @@ const Header = (props) => {
     return (
         <header>
             <div className='container mx-auto pt-4'>
-                <div className='flex justify-between items-center border-b border-red-200 pb-4 mb-4 sm:border-none sm:justify-center'>
+                <div className='flex justify-between items-center border-b border-red-200 pb-4 sm:border-none sm:justify-center'>
                     <div className='flex-shrink-0'>
                         <img className='h-16 mx-2 sm:h-20' src={ logo } alt='logo'/>
                     </div>

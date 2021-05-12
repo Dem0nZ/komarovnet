@@ -37,7 +37,7 @@ const Nav = (props) => {
                 onClick={()=> setBurgerVisible(!burgerVisible)}
             >{ item.name }</Link>)
         }
-        return <li key={ index } className={ `hover:text-red-600  hover:underline cursor-pointer ${ !burgerVisible ? 'sm:py-2' : '' }` }>
+        return <li key={ index } className={ `hover:text-red-600 py-4 hover:underline cursor-pointer ${ !burgerVisible ? 'sm:py-2' : '' }` }>
             { child }
         </li>
     })
@@ -119,7 +119,7 @@ const Nav = (props) => {
                  stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
             </svg>
-            <nav className='mb-4'>
+            <nav>
                 <ul className={ `flex justify-between text-xl font-extralight sm:flex-col sm:font-light sm:items-center ${ !burgerVisible ? 'sm:text-white':'sm:hidden' }` }>
                     { navList }
                 </ul>

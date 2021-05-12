@@ -97,10 +97,10 @@ const Grids = (props) => {
             </div>
         </div>
     )
-
+    // grid grid-cols-4 gap-4
     return (
         <div className='container mx-auto'>
-            <div className='w-full grid grid-cols-4 gap-4 sm:flex sm:flex-col'>
+            <div className='w-full flex flex-wrap sm:flex sm:flex-col'>
                 { gridItems }
             </div>
             <Modal
