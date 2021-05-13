@@ -59,7 +59,7 @@ const Calc = (props) => {
 
     async function postMail ()  {
         try {
-            let response = await fetch('/test.php', {
+            let response = await fetch('/send_email.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
@@ -264,7 +264,7 @@ const Calc = (props) => {
                             onClick={ addToCart }
                         />
                 </form>
-                <div className='w-3/5 px-4 flex flex-col justify-between sm:w-full'>
+                <div className='px-4 flex flex-col justify-between sm:w-full'>
                           <div hidden={ cart.length === 0 }>
                               <div className='flex mt-5 shadow-md p-4 sm:flex-col sm:mb-4'>
                                   <div className='flex w-full flex-col mr-4'>

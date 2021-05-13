@@ -49,7 +49,7 @@ const Grids = (props) => {
     };
     async function postMail ()  {
         try {
-            let response = await fetch('/test.php', {
+            let response = await fetch('/send_email.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
