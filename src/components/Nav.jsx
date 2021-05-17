@@ -10,13 +10,14 @@ const Nav = (props) => {
     const [burgerVisible, setBurgerVisible] = useState(true);
 
     useEffect(() => {
-        if (!burgerVisible) {
-            function onScroll() {
-                setBurgerVisible(true)
+        let lastScrollPosition = window.scrollY;
+        function onScroll() {
+            if (!burgerVisible && lastScrollPosition !== window.scrollY) {
+                setBurgerVisible( true );
             }
-            window.addEventListener("scroll", onScroll);
-            return () => window.removeEventListener("scroll", onScroll);
         }
+        window.addEventListener("scroll", onScroll);
+        return () => window.removeEventListener("scroll", onScroll);
     }, [burgerVisible]);
 
     const navList = navItems.map((item, index) => {
