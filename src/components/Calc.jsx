@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import CartItem from './CartItem';
 import FrameGrid from './FrameGrid';
 
-const Calc = (props) => {
+const Calc = ( props ) => {
 
-    const [cart, setCart] = useState([]);
+    const [ cart, setCart ] = useState( [] );
 
     const initialState = {
         width: '800',
@@ -15,7 +15,21 @@ const Calc = (props) => {
         count: '1'
     };
 
-    const [formState, setState] = useState( initialState );
+    const initialOptions = {
+        delivery: false,
+        install: false
+    }
+    const [ optionsState, setOptions ] = useState( initialOptions )
+
+    const onOptionsChange = ( stateField ) => {
+        return ( e ) => {
+            const newOptions = Object.assign({}, optionsState )
+            newOptions[stateField] = e.target.checked
+            setOptions(newOptions)
+        }
+    }
+
+    const [ formState, setState ] = useState( initialState )
 
     const initialContacts = {
         name: '',
@@ -24,69 +38,69 @@ const Calc = (props) => {
 
     let totalSumm;
 
-    const [contacts, setContacts] = useState( initialContacts )
+    const [ contacts, setContacts ] = useState( initialContacts )
 
-    const onContactsChange = (stateField) => {
-        return (e) => {
-            const newContacts = Object.assign({}, contacts);
+    const onContactsChange = ( stateField ) => {
+        return ( e ) => {
+            const newContacts = Object.assign( {}, contacts )
             newContacts[stateField] = e.target.value;
-            setContacts(newContacts);
+            setContacts( newContacts );
         };
     };
 
-    const removeItemFromCart = (id) => {
-        let currentCart = Object.assign([], cart);
-        currentCart.splice(id, 1);
-        setCart(currentCart);
+    const removeItemFromCart = ( id ) => {
+        let currentCart = Object.assign( [], cart );
+        currentCart.splice( id, 1 );
+        setCart( currentCart );
     }
 
     const addToCart = () => {
-        let newCart = Object.assign([], cart);
-        const itemCart = Object.assign({}, formState);
+        let newCart = Object.assign( [], cart );
+        const itemCart = Object.assign( {}, formState );
         itemCart.cost = priceGrid;
-        newCart.push(itemCart);
-        setCart(newCart);
+        newCart.push( itemCart );
+        setCart( newCart );
         setState( initialState )
     }
 
-    const onChange = (stateField) => {
-        return (e) => {
-            const newState = Object.assign({}, formState);
+    const onChange = ( stateField ) => {
+        return ( e ) => {
+            const newState = Object.assign( {}, formState );
             newState[stateField] = e.target.value;
-            setState(newState);
+            setState( newState );
         };
     }
 
-    async function postMail ()  {
+    async function postMail () {
         try {
-            let response = await fetch('/send_email.php', {
+            let response = await fetch( '/send_email.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json;charset=utf-8'
                 },
-                body: JSON.stringify({type:"order", cart, contacts })
-            })
-            if (response.status === 200) {
-                props.doVisible('green', 'Ваша заявка отправлена', false);
+                body: JSON.stringify( { type: 'order', cart, contacts, optionsState } )
+            } )
+            if ( response.status === 200 ) {
+                props.doVisible( 'green', 'Ваша заявка отправлена', false );
                 setContacts( initialContacts );
-                setCart([] );
+                setCart( [] );
                 setState( initialState );
             }
         } catch (e) {
-            props.doVisible('red', 'Упс. Что-то пошло не так.', false);
+            props.doVisible( 'red', 'Упс. Что-то пошло не так.', false );
         }
     }
 
 
     let square = (formState.width * formState.height / 1000000);
-    if (square < 1) {
+    if ( square < 1 ) {
         square = 1;
     }
 
     let priceType;
-    switch (formState.type) {
+    switch ( formState.type ) {
         case 'стандартное': {
-            priceType = 1000;
+            priceType = 950;
             break;
         }
         case 'антимошка': {
@@ -110,7 +124,7 @@ const Calc = (props) => {
     }
 
     let priceFastering;
-    switch (formState.fastering) {
+    switch ( formState.fastering ) {
         case 'Z-образное, пластик': {
             priceFastering = 0;
             break;
@@ -128,7 +142,7 @@ const Calc = (props) => {
     }
 
     let priceColor;
-    switch (formState.color) {
+    switch ( formState.color ) {
         case 'белый': {
             priceColor = 0;
             break;
@@ -150,13 +164,20 @@ const Calc = (props) => {
     }
 
 
-    const priceGrid = Math.ceil((square * (priceType + priceColor) + priceFastering) * formState.count);
+    const priceGrid = Math.ceil( (square * (priceType + priceColor) + priceFastering) * formState.count );
 
-    if (cart.length !== 0) {
-       totalSumm = cart.reduce(function (prev, curr) {
+    if ( cart.length !== 0 ) {
+        totalSumm = cart.reduce( function ( prev, curr ) {
             return prev + curr.cost
-        }, 0);
+        }, 0 );
+        if (optionsState.install) {
+            totalSumm += cart.length * 350
+        }
+        if (optionsState.delivery) {
+            totalSumm += 400
+        }
     }
+
     const buttonCart = `Заказать за ${ totalSumm } \u20bd`;
 
     return (
@@ -172,12 +193,13 @@ const Calc = (props) => {
                             <span>Размер рамки:</span>
                         </div>
                         <div className='flex items-baseline'>
-                            <input className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:h-12'
-                                   id='width'
-                                   type='text'
-                                   placeholder='Ширина'
-                                   value={ formState.width }
-                                   onChange={ onChange('width') }
+                            <input
+                                className='flex-grow w-20 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:h-12'
+                                id='width'
+                                type='text'
+                                placeholder='Ширина'
+                                value={ formState.width }
+                                onChange={ onChange( 'width' ) }
                             />
                             <span className='mr-2 sm:hidden'>мм</span>
                             <span>
@@ -189,7 +211,7 @@ const Calc = (props) => {
                                 type='text'
                                 placeholder='Высота'
                                 value={ formState.height }
-                                onChange={ onChange('height') }
+                                onChange={ onChange( 'height' ) }
                             />
                             <span>мм</span>
                         </div>
@@ -202,7 +224,7 @@ const Calc = (props) => {
                                     name='typeGrid'
                                     id='typeGrid'
                                     value={ formState.type }
-                                    onChange={ onChange('type') }>
+                                    onChange={ onChange( 'type' ) }>
                                 <option value='стандартное'>стандартное</option>
                                 <option value='антимошка'>антимошка</option>
                                 <option value='антикошка'>антикошка</option>
@@ -218,7 +240,7 @@ const Calc = (props) => {
                             <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em sm:h-12'
                                     id='fastering'
                                     value={ formState.fastering }
-                                    onChange={ onChange('fastering') } >
+                                    onChange={ onChange( 'fastering' ) }>
                                 <option value='Z-образное, пластик'>Z-образное, пластик</option>
                                 <option value='Z-образное, металл'>Z-образное, металл</option>
                                 <option value='плунжерное'>плунжерное</option>
@@ -232,7 +254,7 @@ const Calc = (props) => {
                             <select className='w-full focus:outline-none border border-gray-200 pl-2 h-2em sm:h-12'
                                     id='colorFrame'
                                     value={ formState.color }
-                                    onChange={ onChange('color') }>
+                                    onChange={ onChange( 'color' ) }>
 
                                 <option value='белый'>белый</option>
                                 <option value='коричневый'>коричневый</option>
@@ -245,11 +267,12 @@ const Calc = (props) => {
                             <span>Количество:</span>
                         </div>
                         <div>
-                            <input className='w-12 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:w-20 sm:h-12'
-                                   id='count'
-                                   type='text'
-                                   value={ formState.count }
-                                   onChange={ onChange('count') }
+                            <input
+                                className='w-12 border border-gray-200 focus:outline-none mr-1 text-right pr-2 h-2em sm:w-20 sm:h-12'
+                                id='count'
+                                type='text'
+                                value={ formState.count }
+                                onChange={ onChange( 'count' ) }
                             />
                             <label htmlFor='count'>шт</label>
                         </div>
@@ -257,44 +280,64 @@ const Calc = (props) => {
                         <h3 className='text-2xl font-normal'>{ priceGrid } &#8381;</h3>
                     </div>
 
-                        <input
-                            className='self-end focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 mt-6 sm:w-full'
-                            type='button'
-                            value='Добавить в заказ'
-                            onClick={ addToCart }
-                        />
+                    <input
+                        className='self-end focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 mt-6 sm:w-full'
+                        type='button'
+                        value='Добавить в заказ'
+                        onClick={ addToCart }
+                    />
                 </form>
                 <div className='px-4 flex flex-col justify-between sm:w-full'>
-                          <div hidden={ cart.length === 0 }>
-                              <div className='flex mt-5 shadow-md p-4 sm:flex-col sm:mb-4'>
-                                  <div className='flex w-full flex-col mr-4'>
-                                      <label htmlFor='count'>Имя:</label>
-                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em  sm:h-12'
-                                             id='name'
-                                             type='text'
-                                             value={ contacts.name }
-                                             onChange={ onContactsChange('name') }
-                                      />
-                                  </div>
-                                  <div className='flex w-full flex-col'>
-                                      <label htmlFor='count'>Телефон или e-mail:</label>
-                                      <input className='border border-gray-200 focus:outline-none text-left pl-1 h-2em sm:h-12'
-                                             id='phone'
-                                             type='text'
-                                             value={ contacts.phone }
-                                             onChange={ onContactsChange('phone') }
-                                      />
-                                  </div>
-                              </div>
-                          </div>
+                    <div hidden={ cart.length === 0 }>
+                        <div className='flex mt-5 shadow-md p-4 sm:flex-col sm:mb-4'>
+                            <div className='flex w-full flex-col mr-4'>
+                                <label htmlFor='count'>Имя:</label>
+                                <input
+                                    className='border border-gray-200 focus:outline-none text-left pl-1 h-2em  sm:h-12'
+                                    id='name'
+                                    type='text'
+                                    value={ contacts.name }
+                                    onChange={ onContactsChange( 'name' ) }
+                                />
+                            </div>
+                            <div className='flex w-full flex-col'>
+                                <label htmlFor='count'>Телефон или e-mail:</label>
+                                <input
+                                    className='border border-gray-200 focus:outline-none text-left pl-1 h-2em sm:h-12'
+                                    id='phone'
+                                    type='text'
+                                    value={ contacts.phone }
+                                    onChange={ onContactsChange( 'phone' ) }
+                                />
+                            </div>
+                        </div>
+                    </div>
                     <div>
                         { (cart.length !== 0)
-                            ? cart.map((item, index) => <CartItem
+                            ? cart.map( ( item, index ) => <CartItem
                                 key={ index }
                                 removeItemFromCart={ removeItemFromCart }
-                                id={ index } { ...item }/>)
-                            : <p className='sm:hidden'> Добавьте расчет рамки в заказ</p>   }
+                                id={ index } { ...item }/> )
+                            : <p className='sm:hidden'> Добавьте расчет рамки в заказ</p> }
 
+                        <div className={ (cart.length !== 0) ? 'flex flex-col mb-4 w-1/4' : 'hidden' }>
+                            <div className='flex justify-between items-center'>
+                                <label htmlFor='delivery'>Доставка</label>
+                                <input id='delivery'
+                                       type='checkbox'
+                                       className='ml-2 transform scale-150'
+                                       checked={ optionsState.delivery }
+                                onChange={onOptionsChange('delivery')}/>
+                            </div>
+                            <div className='flex justify-between items-center'>
+                                <label htmlFor='install'>Установка</label>
+                                <input id='install'
+                                       type='checkbox'
+                                       className='ml-2 transform scale-150'
+                                       checked={optionsState.install}
+                                       onChange={onOptionsChange('install')}/>
+                            </div>
+                        </div>
                         <input
                             className='focus:outline-none border border-red-600 bg-white hover:bg-red-200 text-red-600 px-3 py-2 sm:w-full'
                             type='button'
