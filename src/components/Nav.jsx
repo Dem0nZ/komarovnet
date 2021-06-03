@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { navItems } from '../models';
+import { mainInfo, navItems } from '../models';
 
 import { Link } from "react-scroll";
 import Modal from './Modal';
@@ -106,20 +106,24 @@ const Nav = (props) => {
                     onClick={ postMail }
                 />
             </div>
-        </div>
-    )
+        </div>)
 
 
     return (
-        <div className={ `container mx-auto sticky sm:bg-transparent bg-gray-100 top-0 z-40 ${ !burgerVisible ? 'sm:bg-gray-400':'' }` }>
-            <svg xmlns="http://www.w3.org/2000/svg"
-                 className={ `h-0 sm:h-10 text-red-600 ml-4 ${burgerVisible ? '':'sm:hidden'}` }
-                 onClick={() => setBurgerVisible(!burgerVisible)}
-                 fill="none"
-                 viewBox="0 0 24 24"
-                 stroke="currentColor">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-            </svg>
+        <div className={ `container mx-auto sticky bg-gray-100 top-0 z-40 ${ !burgerVisible ? 'sm:bg-gray-400':'' }` }>
+            <div className='flex justify-between'>
+                <svg xmlns="http://www.w3.org/2000/svg"
+                     className={ `h-0 sm:h-10 text-red-600 ml-4 ${burgerVisible ? '':'sm:hidden'}` }
+                     onClick={() => setBurgerVisible(!burgerVisible)}
+                     fill="none"
+                     viewBox="0 0 24 24"
+                     stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+                <div className={ `text-2xl text-red-600 flex-shrink-0 mr-4 ${burgerVisible ? '':'sm:hidden'} lg:hidden`}>
+                    <a href={ 'tel:' + mainInfo.phone }>{ mainInfo.phone }</a>
+                </div>
+            </div>
             <nav>
                 <ul className={ `flex justify-between text-xl font-extralight sm:flex-col sm:font-light sm:items-center ${ !burgerVisible ? 'sm:text-white':'sm:hidden' }` }>
                     { navList }
