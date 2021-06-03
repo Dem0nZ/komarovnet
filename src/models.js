@@ -17,6 +17,7 @@ import WindowsIco from './components/icons/WindowsIco';
 export const mainInfo = {
     mail: 'info@komarovnetu.ru',
     phone: '+7 (812) 679-29-23',
+    whatsApp: '79111234465',
     addressOffice: 'Санкт-Петербург, площадь Конституции, дом 2',
     addressProm: 'Санкт-Петербург, Ленинский проспект, дом 139',
     mapOffice: {
