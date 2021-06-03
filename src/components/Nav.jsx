@@ -14,7 +14,6 @@ const Nav = ( props ) => {
         let navbarTrackingPosition = window.scrollY;
 
         function onScroll () {
-            console.log(`>>> WSP ${window.scrollY} HIDENAV: ${hideNavbar} HIDEVISIBLE: ${burgerVisible} `)
             setHideNavbar(window.scrollY > 181 && window.scrollY > navbarTrackingPosition)
             navbarTrackingPosition = window.scrollY;
             if ( !burgerVisible && lastScrollPosition !== window.scrollY && hideNavbar ) {
