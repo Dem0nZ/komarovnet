@@ -1,8 +1,12 @@
 import React from 'react';
+import ScrollAnimation from 'react-animate-on-scroll';
 
 const Advice = () => {
     return (
-        <div className='container mx-auto font-light text-xl text-indent px-2 pb-20'>
+        <ScrollAnimation animateIn='animate__fadeInUp'
+                         duration={ 0.4 }
+                         animateOnce={ true }
+                         className='container mx-auto font-light text-xl text-indent px-2 pb-20'>
             <p>
                 Уход за москитными сетками достаточно прост, но это позволит продлить срок службы ваших сеток.
             </p>
@@ -48,7 +52,7 @@ const Advice = () => {
                    </span>
                 </li>
             </ul>
-        </div>
+        </ScrollAnimation>
     );
 };
 

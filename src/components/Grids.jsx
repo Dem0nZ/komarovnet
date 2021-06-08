@@ -27,6 +27,7 @@ const Grids = (props) => {
             </button>)
         }
         return (
+
             <Card key={index} { ...item }>
                 {child}
             </Card>
