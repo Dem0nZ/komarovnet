@@ -1,6 +1,6 @@
 import Header from './components/Header';
 import Nav from './components/Nav';
-import Poster from './components/Poster';
+import Slider from './components/Slider';
 import Calc from './components/Calc';
 import Footer from './components/Footer';
 import Conditions from './components/Conditions';
@@ -33,7 +33,7 @@ function App() {
             <Snackbar {...snackState}/>
             <Header doVisible={ doVisible }/>
             <Nav doVisible={ doVisible }/>
-            <Poster/>
+            <Slider/>
             <Title title={ 'Рамочные москитные сетки' }/>
             <Calc doVisible={ doVisible }/>
             <Title id='grids' title={ 'Виды москитных сеток' }/>

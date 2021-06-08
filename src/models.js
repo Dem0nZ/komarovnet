@@ -10,8 +10,9 @@ import React from 'react';
 import PaymentIco from './components/icons/PaymentIco';
 import DeliveryIco from './components/icons/DeliveryIco';
 import VerifiedIco from './components/icons/VerifiedIco';
-import FactoryIco from './components/icons/FactoryIco';
-import WindowsIco from './components/icons/WindowsIco';
+import slide1 from './assets/slides/slide1.webp'
+import slide2 from './assets/slides/slide2.webp'
+import slide3 from './assets/slides/slide3.webp'
 
 
 export const mainInfo = {
@@ -34,6 +35,12 @@ export const mainInfo = {
     }
 }
 
+export const slides = [
+    slide1,
+    slide2,
+    slide3
+]
+
 export const navItems = [
     {
         name: 'Москитные сетки',
@@ -55,18 +62,6 @@ export const navItems = [
         name: 'Партнерам',
         link: '#'
     }
-]
-
-
-export const advantagesItems = [
-    {
-        name: 'Собственное производство',
-        icon: <FactoryIco className='h-12 text-red-600 sm:text-white'/>
-    },
-    {
-        name: 'Бесплатный замер',
-        icon: <WindowsIco className='h-12 text-red-600 sm:text-white'/>
-    },
 ]
 
 export const grids = [
