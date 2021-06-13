@@ -10,9 +10,9 @@ import React from 'react';
 import PaymentIco from './components/icons/PaymentIco';
 import DeliveryIco from './components/icons/DeliveryIco';
 import VerifiedIco from './components/icons/VerifiedIco';
-import slide1 from './assets/slides/slide1.webp'
-import slide2 from './assets/slides/slide2.webp'
-import slide3 from './assets/slides/slide3.webp'
+import slide1 from './assets/slides/1.jpg'
+import slide2 from './assets/slides/2.jpg'
+import slide3 from './assets/slides/3.jpg'
 
 
 export const mainInfo = {
@@ -42,9 +42,8 @@ export const slides = [
 ]
 export const slidesText = [
     {
-        1: '10% скидка',
+        1: 'Cкидка 10%',
         2: 'пенсионерам',
-        3: 'и инвалидам'
     },
     {
         1: 'Дачникам установка',
